@@ -2,7 +2,8 @@ var express = require(`express`),
     request = require(`request`),
     fs = require('fs'),
     app = express(),
-    hbs = require(`hbs`);
+    hbs = require(`hbs`),
+    port = process.env.PORT || 3000;
 //--------------------------------------------
 hbs.registerPartials(__dirname+'/views/partials');
 app.set('view engine', 'hbs');
@@ -51,6 +52,6 @@ app.get('/bad', (req, res) => {
   });
 });
 //-----------------LISTEN---------------------------
-app.listen(3000, () => {
-  console.log('PORT 3000 ONLINE');
+app.listen(port, () => {
+  console.log(`port up on ${port}`);
 });
